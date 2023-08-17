@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Exercicio 14</title>
+</head>
+<body>
+
+
+    <div id="container">
+        <h1>Verificação de votação</h1>
+
+        <label for="anoAtual">Ano atual:</label>
+        <input type="number" id="anoAtual">
+
+        <label for="anoNascimento">Ano de nascimento:</label>
+        <input type="number" id="anoNascimento">
+
+        <button id="verificar">Verificar</button>
+        <p id="mensagem"></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() 
+        {
+            var verificarButton = document.getElementById('verificar');
+            verificarButton.addEventListener('click', verificarVotacao);
+        });
+
+        function verificarVotacao() 
+        {
+            var anoAtual        = parseInt(document.getElementById('anoAtual').value);
+            var anoNascimento   = parseInt(document.getElementById('anoNascimento').value);
+            var idade           = anoAtual - anoNascimento;
+
+            var mensagem = (idade >= 16) ? "Você poderá votar este ano." : "Você não poderá votar este ano.";
+
+            document.getElementById('mensagem').textContent = mensagem;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Exercicio 18</title>
+</head>
+<body>
+
+
+    <div id="container">
+        <h1>Calculadora de salário de vendedor</h1>
+
+        <label for="salarioFixo">Salário fixo:</label>
+        <input type="number" id="salarioFixo">
+
+        <label for="valorVendas">Valor das vendas efetuadas:</label>
+        <input type="number" id="valorVendas">
+
+        <button id="calcular">Calcular</button>
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() 
+        {
+            var calcularButton = document.getElementById('calcular');
+            calcularButton.addEventListener('click', calcularSalarioVendedor);
+        });
+
+        function calcularSalarioVendedor() 
+        {
+            var salarioFixo = parseFloat(document.getElementById('salarioFixo').value);
+            var valorVendas = parseFloat(document.getElementById('valorVendas').value);
+
+            var comissao;
+            if (valorVendas <= 1500) 
+            {
+                comissao = valorVendas * 0.03;
+            }
+            else 
+            {
+                comissao = (1500 * 0.03) + ((valorVendas - 1500) * 0.05);
+            }
+
+            var salarioTotal = salarioFixo + comissao;
+
+            document.getElementById('resultado').textContent = "O salário total do vendedor é R$ " + salarioTotal.toFixed(2);
+        }
+    </script>
+</body>
+</html>

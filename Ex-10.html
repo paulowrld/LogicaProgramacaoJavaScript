@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Exercicio 10</title>
+</head>
+<body>
+
+
+    <div id="container">
+        <h1>Verificação de valor</h1>
+
+        <label for="valor">Digite um valor:</label>
+        <input type="number" id="valor">
+
+        <button id="verificar">Verificar</button>
+        <p id="mensagem"></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() 
+        {
+            var verificarButton = document.getElementById('verificar');
+            verificarButton.addEventListener('click', verificarValor);
+        });
+
+        function verificarValor() 
+        {
+            var valor = parseFloat(document.getElementById('valor').value);
+
+            var mensagem = (valor > 10) ? "É MAIOR QUE 10!" : "NÃO É MAIOR QUE 10!";
+
+            document.getElementById('mensagem').textContent = mensagem;
+        }
+    </script>
+</body>
+</html>

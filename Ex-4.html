@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Exercicio 4</title>
+</head>
+<body>
+
+
+    <div id="container">
+        <h1>Percentual de votos</h1>
+        <label for="totalEleitores">Total de eleitores:</label>
+        <input type="number" id="totalEleitores">
+
+        <label for="votosBrancos">Votos em branco:</label>
+        <input type="number" id="votosBrancos">
+
+        <label for="votosNulos">Votos nulos:</label>
+        <input type="number" id="votosNulos">
+
+        <label for="votosValidos">Votos válidos:</label>
+        <input type="number" id="votosValidos">
+        
+        <button id="calcular">Calcular</button>
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() 
+        {
+            var calcularButton = document.getElementById('calcular');
+            calcularButton.addEventListener('click', calcularPercentuais);
+        });
+
+        function calcularPercentuais() 
+        {
+            var totalEleitores  = parseInt(document.getElementById('totalEleitores').value);
+            var votosBrancos    = parseInt(document.getElementById('votosBrancos').value);
+            var votosNulos      = parseInt(document.getElementById('votosNulos').value);
+            var votosValidos    = parseInt(document.getElementById('votosValidos').value);
+
+            var percentualBrancos   = (votosBrancos / totalEleitores) * 100;
+            var percentualNulos     = (votosNulos   / totalEleitores) * 100;
+            var percentualValidos   = (votosValidos / totalEleitores) * 100;
+
+            document.getElementById('resultado').innerHTML = "Percentual de votos em branco: "  + percentualBrancos.toFixed(2)  + "% <br>" +
+                                                             "Percentual de votos nulos: "      + percentualNulos.toFixed(2)    + "% <br>" +
+                                                             "Percentual de votos válidos: "    + percentualValidos.toFixed(2)  + "%";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Exercicio 9</title>
+</head>
+<body>
+
+
+    <div id="container">
+        <h1>Média ponderada de ntas</h1>
+
+        <label for="nota1">Nota 1:</label>
+        <input type="number" id="nota1">
+
+        <label for="nota2">Nota 2:</label>
+        <input type="number" id="nota2">
+
+        <label for="nota3">Nota 3:</label>
+        <input type="number" id="nota3">
+
+        <button id="calcular">Calcular</button>
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() 
+        {
+            var calcularButton = document.getElementById('calcular');
+            calcularButton.addEventListener('click', calcularMediaPonderada);
+        });
+
+        function calcularMediaPonderada() 
+        {
+            var nota1 = parseFloat(document.getElementById('nota1').value);
+            var nota2 = parseFloat(document.getElementById('nota2').value);
+            var nota3 = parseFloat(document.getElementById('nota3').value);
+
+            var pesoNota1 = 2;
+            var pesoNota2 = 3;
+            var pesoNota3 = 5;
+
+            var media = (nota1 * pesoNota1 + nota2 * pesoNota2 + nota3 * pesoNota3) / (pesoNota1 + pesoNota2 + pesoNota3);
+
+            document.getElementById('resultado').textContent = "A média final é " + media.toFixed(2);
+        }
+    </script>
+</body>
+</html>

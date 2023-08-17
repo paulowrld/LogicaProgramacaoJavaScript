@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Exercicio 7</title>
+</head>
+<body>
+
+
+    <div id="container">
+        <h1>Salário</h1>
+
+        <label for="numCarrosVendidos">Número de carros vendidos:</label>
+        <input type="number" id="numCarrosVendidos">
+
+        <label for="valorTotalVendas">Valor total das vendas:</label>
+        <input type="number" id="valorTotalVendas">
+
+        <label for="salarioFixo">Salário fixo:</label>
+        <input type="number" id="salarioFixo">
+
+        <label for="comissaoPorCarro">Comissão por carro vendido:</label>
+        <input type="number" id="comissaoPorCarro">
+
+        <button id="calcular">Calcular</button>
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() 
+        {
+            var calcularButton = document.getElementById('calcular');
+            calcularButton.addEventListener('click', calcularSalarioFinal);
+        });
+
+        function calcularSalarioFinal() 
+        {
+            var numCarrosVendidos   = parseInt(document.getElementById('numCarrosVendidos').value);
+            var valorTotalVendas    = parseFloat(document.getElementById('valorTotalVendas').value);
+            var salarioFixo         = parseFloat(document.getElementById('salarioFixo').value);
+            var comissaoPorCarro    = parseFloat(document.getElementById('comissaoPorCarro').value);
+
+            var salarioComComissao  = salarioFixo + (numCarrosVendidos * comissaoPorCarro);
+            var salarioFinal        = salarioComComissao + (0.05 * valorTotalVendas);
+
+            document.getElementById('resultado').textContent = "O salário final do vendedor é R$ " + salarioFinal.toFixed(2);
+        }
+    </script>
+</body>
+</html>

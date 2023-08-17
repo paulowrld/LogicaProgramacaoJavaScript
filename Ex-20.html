@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Exercicio 20</title>
+</head>
+<body>
+
+
+    <div id="container">
+        <h1>Verificação de estoque</h1>
+        <label for="quantidadeAtual">Quantidade atual em estoque:</label>
+        <input type="number" id="quantidadeAtual">
+
+        <label for="quantidadeMaxima">Quantidade máxima em estoque:</label>
+        <input type="number" id="quantidadeMaxima">
+
+        <label for="quantidadeMinima">Quantidade mínima em estoque:</label>
+        <input type="number" id="quantidadeMinima">
+
+        <button id="verificar">Verificar</button>
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() 
+        {
+            var verificarButton = document.getElementById('verificar');
+            verificarButton.addEventListener('click', verificarEstoque);
+        });
+
+        function verificarEstoque() 
+        {
+            var quantidadeAtual     = parseFloat(document.getElementById('quantidadeAtual').value);
+            var quantidadeMaxima    = parseFloat(document.getElementById('quantidadeMaxima').value);
+            var quantidadeMinima    = parseFloat(document.getElementById('quantidadeMinima').value);
+
+            var quantidadeMedia = (quantidadeMaxima + quantidadeMinima) / 2;
+
+            var mensagem = (quantidadeAtual >= quantidadeMedia) ? "Não efetuar compra" : "Efetuar compra";
+
+            document.getElementById('resultado').textContent = mensagem;
+        }
+    </script>
+</body>
+</html>

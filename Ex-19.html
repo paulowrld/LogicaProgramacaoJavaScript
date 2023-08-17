@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Exercicio 19</title>
+</head>
+<body>
+
+
+    <div id="container">
+        <h1>Verificação de saldo</h1>
+
+        <label for="numeroConta">Número da conta:</label>
+        <input type="number" id="numeroConta">
+
+        <label for="saldo">Saldo:</label>
+        <input type="number" id="saldo">
+
+        <label for="debito">Débito:</label>
+        <input type="number" id="debito">
+
+        <label for="credito">Crédito:</label>
+        <input type="number" id="credito">
+
+        <button id="calcular">Calcular</button>
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() 
+        {
+            var calcularButton = document.getElementById('calcular');
+            calcularButton.addEventListener('click', calcularSaldo);
+        });
+
+        function calcularSaldo() 
+        {
+            var saldoInicial = parseFloat(document.getElementById('saldo').value);
+            var debito       = parseFloat(document.getElementById('debito').value);
+            var credito      = parseFloat(document.getElementById('credito').value);
+
+            var saldoAtual   = saldoInicial - debito + credito;
+
+            var mensagem     = (saldoAtual >= 0) ? "Saldo Positivo" : "Saldo Negativo";
+
+            document.getElementById('resultado').textContent = "Saldo Atual: R$ " + saldoAtual.toFixed(2) + " - " + mensagem;
+        }
+    </script>
+</body>
+</html>

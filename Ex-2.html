@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Exercicio 2</title>
+</head>
+<body>
+
+
+    <div id="container">
+        <h1>Calcular área de um retangulo</h1>
+
+        <label for="base">Base do retângulo:</label>
+        <input type="number" id="base">
+
+        <label for="altura">Altura do retângulo:</label>
+        <input type="number" id="altura">
+        
+        <button id="calcular">Calcular Área</button>
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() 
+        {
+            var calcularButton = document.getElementById('calcular'); //Garantir carregamento da pagina
+            calcularButton.addEventListener('click', calcularArea);
+        });
+
+        function calcularArea() 
+        {
+            var base = parseFloat(document.getElementById('base').value);
+            var altura = parseFloat(document.getElementById('altura').value);
+            var area = base * altura;
+
+            document.getElementById('resultado').textContent = "A área do retângulo é " + area + ".";
+        }
+    </script>
+</body>
+</html>
